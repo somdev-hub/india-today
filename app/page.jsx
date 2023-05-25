@@ -5,7 +5,6 @@ import Sidebar from "@/components/Sidebar";
 import MainScreen from "@/components/MainScreen";
 import RightBar from "@/components/RightBar";
 
-
 const page = () => {
   const [data, setData] = useState([]);
 
@@ -23,9 +22,9 @@ const page = () => {
     <section className="flex h-screen">
       <Sidebar />
       <div className="overflow-y-scroll no-scrollbar">
-        <MainScreen data={data}/>
+        <MainScreen data={data} />
       </div>
-      <RightBar data={data}/>
+      <RightBar data={data} screen="screen" height="100%" ml="5" cw="no" />
     </section>
   );
 };
