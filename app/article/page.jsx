@@ -6,10 +6,11 @@ import RightBar from "@/components/RightBar";
 
 const page = () => {
   const [data, setData] = useState({});
-  const [otherData, setOtherData] = useState([]); // [
+  const [otherData, setOtherData] = useState([]);
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
   const keyword = searchParams.get("keyword");
+  const country = searchParams.get("country");
   useEffect(() => {
     const fetchOtherData = async () => {
       const res = await fetch("/api/headline_search");
@@ -27,7 +28,7 @@ const page = () => {
     const fetchKeywordData = async () => {
       const res = await fetch("/api/headline_search", {
         method: "POST",
-        body: JSON.stringify({ keyword: keyword })
+        body: JSON.stringify({ keyword: keyword, country: country })
       });
       const json = await res.json();
       // console.log(json);
@@ -41,7 +42,7 @@ const page = () => {
     // fetchData();
     fetchOtherData();
   }, []);
-  console.log(data);
+  // console.log(data);
   return (
     <section className="flex justify-center mt-5">
       <div className="w-1/3">
@@ -60,7 +61,7 @@ const page = () => {
         </div>
         <div className="flex justify-between py-3 border-b-2">
           <div className="flex flex-col">
-            <p className="my-2 text-stone-600 text-lg">Autor</p>
+            <p className="my-2 text-stone-600 text-lg">Author</p>
             <h3 className="font-bold text-lg">{data.author}</h3>
           </div>
           <div className="">

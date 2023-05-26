@@ -11,8 +11,9 @@ export const GET = async (req, res) => {
 };
 
 export const POST = async (req, res) => {
-  const { keyword } = await req.json();
-  // const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.API_KEY}`;
+  const { keyword, country } = await req.json();
+  // console.log(keyword, country);
+  const url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${process.env.API_KEY}`;
   const response = await fetch(url);
   const data = await response.json();
   // console.log(data);

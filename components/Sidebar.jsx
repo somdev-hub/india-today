@@ -1,7 +1,7 @@
 "use client";
 
-import { AiFillHome } from "react-icons/ai";
-import { BsVectorPen } from "react-icons/bs";
+import { AiFillHome, AiFillSetting } from "react-icons/ai";
+import { BsFillBookmarkCheckFill, BsVectorPen } from "react-icons/bs";
 
 const Sidebar = () => {
   return (
@@ -12,16 +12,16 @@ const Sidebar = () => {
           <p className="text-stone-700 text-sm font-medium">Home</p>
         </div>
         <div className="flex flex-col mb-8 justify-center items-center">
-          <BsVectorPen className="text-xl mb-2" />
-          <p className="text-stone-700 text-sm font-medium">Discover</p>
+          <BsVectorPen className="text-xl mb-2 text-stone-500" />
+          <p className="text-stone-500 text-sm font-medium">Discover</p>
         </div>
         <div className="flex flex-col mb-8 justify-center items-center">
-          <AiFillHome className="text-xl mb-2" />
-          <p className="text-stone-700 text-sm font-medium">Home</p>
+          <BsFillBookmarkCheckFill className="text-xl mb-2 text-stone-500" />
+          <p className="text-stone-500 text-sm font-medium">Bookmark</p>
         </div>
         <div className="flex flex-col mb-8 justify-center items-center">
-          <AiFillHome className="text-xl mb-2" />
-          <p className="text-stone-700 text-sm font-medium">Home</p>
+          <AiFillSetting className="text-xl mb-2 text-stone-500" />
+          <p className="text-stone-500 text-sm font-medium">Setting</p>
         </div>
       </div>
       <h3 className="text-stone-700 text-sm flex justify-center mb-6 font-medium">

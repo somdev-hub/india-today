@@ -4,7 +4,7 @@ import Image from "next/image";
 import styles from "@/styles/main.module.css";
 import Link from "next/link";
 
-const HeadLines = ({ image, author, headline, date, cw, keyword }) => {
+const HeadLines = ({ image, author, headline, date, cw, keyword, country }) => {
   // console.log(styles.headlines);
   return (
     <div
@@ -14,7 +14,7 @@ const HeadLines = ({ image, author, headline, date, cw, keyword }) => {
     >
       <div className="h-32 w-1/3">
         {/* <Image src={image} width={150} height={150} alt="" /> */}
-        <Link href={`/article?keyword=${keyword}`}>
+        <Link href={`/article?keyword=${keyword}&country=${country}`}>
           <img src={image} className="w-full h-full object-cover" alt="" />
         </Link>
       </div>

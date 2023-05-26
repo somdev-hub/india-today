@@ -3,13 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const Card = ({ author, image, title, date, keyword }) => {
-  console.log(keyword);
+const Card = ({ image, title, date, keyword, country }) => {
+  // console.log(keyword);
   return (
     <div className="bg-white w-64 h-fit">
       <div className="flex justify-center items-center h-40 w-64">
         {/* <Image src={image} width={275} height={150} alt="" /> */}
-        <Link href={`/article?keyword=${keyword}`} className="w-full h-full">
+        <Link
+          href={`/article?keyword=${keyword}&country=${country}`}
+          className="w-full h-full"
+        >
           <img src={image} alt="" className="w-full h-full" />
         </Link>
       </div>
