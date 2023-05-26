@@ -5,6 +5,7 @@ import { AiOutlineBell } from "react-icons/ai";
 import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 // import { TfiWrite } from "react-icons/tfi";
 
 const Nav = () => {
@@ -19,8 +20,9 @@ const Nav = () => {
     <nav className="bg-gray-700 flex flex-1 justify-between items-center text-white p-5">
       <div className="flex justify-center items-center gap-4">
         <GiHamburgerMenu className="text-xl" />
-
-        <h3 className="text-xl">India Today</h3>
+        <Link href="/">
+          <h3 className="text-xl">India Today</h3>
+        </Link>
       </div>
       <form action="/" onSubmit={submitted}>
         <input

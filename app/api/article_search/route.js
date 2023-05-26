@@ -9,12 +9,12 @@ export const POST = async (req, res) => {
   const response = await fetch(url);
   const data = await response.json();
   const flag = [];
-  data.articles.slice(0, 100).forEach((article) => {
-    if (article.source.name === keyword) {
-      //   console.log(article);
-      flag.push(article);
-    }
-  });
+  flag.push(data.articles[parseInt(keyword)]);
+  // data.articles.slice(0, 100).forEach((article) => {
+  //   if (article.source.name === keyword) {
+  //     flag.push(article);
+  //   }
+  // });
 
   //   var content = "";
   async function getArticle() {
@@ -24,10 +24,10 @@ export const POST = async (req, res) => {
     const reader = new Readability(dom.window.document).parse();
     return reader.textContent;
   }
-    const content = await getArticle();
-    // console.log(content);
-    flag[0].content = content;
-    // console.log(flag[0].content);
+  const content = await getArticle();
+  // console.log(content);
+  flag[0].content = content;
+  // console.log(flag[0].content);
 
   return new Response(JSON.stringify(flag[0]), { status: 200 });
   //   console.log(flag[0].content);

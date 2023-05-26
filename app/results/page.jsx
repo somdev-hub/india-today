@@ -13,7 +13,7 @@ const Results = ({ data, query }) => {
           <div className="flex justify-center items-center gap-5 mb-5 border-b-2 pb-5">
             <div className="h-32 w-40">
               <Link
-                href={`/article?query=${query}&keyword=${item.source.name}`}
+                href={`/article?query=${query}&keyword=${index}`}
               >
                 <img
                   src={item.urlToImage}

@@ -10,10 +10,9 @@ const page = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("/api/news");
+      const res = await fetch("/api/headline_search");
       const json = await res.json();
       setData(json);
-      // console.log(json);
     };
     fetchData();
   }, []);

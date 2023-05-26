@@ -12,7 +12,7 @@ const page = () => {
   const keyword = searchParams.get("keyword");
   useEffect(() => {
     const fetchOtherData = async () => {
-      const res = await fetch("/api/news");
+      const res = await fetch("/api/headline_search");
       const json = await res.json();
       setOtherData(json);
     };
@@ -22,16 +22,37 @@ const page = () => {
         body: JSON.stringify({ query: query, keyword: keyword })
       });
       const json = await res.json();
+      setData(json);
+    };
+    const fetchKeywordData = async () => {
+      const res = await fetch("/api/headline_search", {
+        method: "POST",
+        body: JSON.stringify({ keyword: keyword })
+      });
+      const json = await res.json();
       // console.log(json);
       setData(json);
     };
-    fetchData();
+    if (query === null) {
+      fetchKeywordData();
+    } else {
+      fetchData();
+    }
+    // fetchData();
     fetchOtherData();
   }, []);
+  console.log(data);
   return (
     <section className="flex justify-center mt-5">
       <div className="w-1/3">
-        <RightBar data={otherData} screen="full" height="100%" ml="0" cw="full"/>
+        <RightBar
+          data={otherData}
+          screen="full"
+          height="100%"
+          ml="0"
+          cw="full"
+          // keyword={otherData.source?.name}
+        />
       </div>
       <div className="flex flex-col w-2/3 mx-5">
         <div className="pb-5 w-full border-b-2">

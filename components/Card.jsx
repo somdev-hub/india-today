@@ -1,16 +1,18 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
-const Card = ({ author, image, title, date }) => {
-    // console.log(image);
+const Card = ({ author, image, title, date, keyword }) => {
+  console.log(keyword);
   return (
     <div className="bg-white w-64 h-fit">
       <div className="flex justify-center items-center h-40 w-64">
         {/* <Image src={image} width={275} height={150} alt="" /> */}
-        <img src={image} alt="" className="w-full h-full"/>
+        <Link href={`/article?keyword=${keyword}`} className="w-full h-full">
+          <img src={image} alt="" className="w-full h-full" />
+        </Link>
       </div>
-      {/* {alert(image)} */}
       <div className="mt-4">
         <div className="">
           <h3>{title}</h3>

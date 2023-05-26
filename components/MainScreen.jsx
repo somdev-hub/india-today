@@ -16,6 +16,7 @@ const CardList = ({ data }) => {
           image={item.urlToImage}
           title={item.title}
           date={item.publishedAt}
+          keyword={index}
         />
       ))}
     </div>
@@ -40,23 +41,73 @@ const MainScreen = ({ data }) => {
     const json = await res.json();
     setNewData(json);
   };
-  const date=new Date();
-   const days=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-   const months=["January","February","March","April","May","June","July","August","September","October","November","December"]
+  const date = new Date();
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
   return (
     <section className="ml-12 mt-8">
       <div className="flex items-center gap-16 border-b-2 pb-4">
         <div className="">
-          <h3 className="text-stone-800 font-bold text-lg">{days[date.getDay()]}</h3>
-          <p>{`${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`}</p>
+          <h3 className="text-stone-800 font-bold text-lg">
+            {days[date.getDay()]}
+          </h3>
+          <p>{`${
+            months[date.getMonth()]
+          } ${date.getDate()}, ${date.getFullYear()}`}</p>
         </div>
         <div className="">
           <ul className="flex items-center gap-16">
-            <li onClick={clicked} className="cursor-pointer hover:text-stone-600">INDIA</li>
-            <li onClick={clicked} className="cursor-pointer hover:text-stone-600">WORLD</li>
-            <li onClick={clicked} className="cursor-pointer hover:text-stone-600">SPORTS</li>
-            <li onClick={clicked} className="cursor-pointer hover:text-stone-600">BUSINESS</li>
-            <li onClick={clicked} className="cursor-pointer hover:text-stone-600">FILMS</li>
+            <li
+              onClick={clicked}
+              className="cursor-pointer hover:text-stone-600"
+            >
+              INDIA
+            </li>
+            <li
+              onClick={clicked}
+              className="cursor-pointer hover:text-stone-600"
+            >
+              WORLD
+            </li>
+            <li
+              onClick={clicked}
+              className="cursor-pointer hover:text-stone-600"
+            >
+              SPORTS
+            </li>
+            <li
+              onClick={clicked}
+              className="cursor-pointer hover:text-stone-600"
+            >
+              BUSINESS
+            </li>
+            <li
+              onClick={clicked}
+              className="cursor-pointer hover:text-stone-600"
+            >
+              FILMS
+            </li>
           </ul>
         </div>
       </div>
